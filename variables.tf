@@ -8,19 +8,21 @@ variable "ami" {
 
 variable "data_instances" {
     description = "The number of data nodes to run"
+    type = number
 }
 
 variable "meta_instances" {
     description = "The number of meta nodes to run"
+    type = number
 }
 
 variable "tags" {
     description = "Tags to be applied to all resources managed by this module"
-    type = "map"
+    type = map
 }
 
 variable "subnet_ids" {
-    type        = "list"
+    type        = list
     description = "The subnet ID for servers, data-nodes will be equally distributed accross these subnets"
 }
 
@@ -43,15 +45,17 @@ variable "zone_id" {
 variable "data_disk_size" {
     description = "The size of the data disks to provision, for data nodes only"
     default = 300
+    type = number
 }
 
 variable "data_disk_iops" {
     description = "The number of IOPs for the io1 type volume"
     default = 4000
+    type = number
 }
 
 variable "security_groups" {
-    type        = "list"
+    type        = list
     description = "Extra security groups to apply to all hosts, useful for bastion host access"
     default     = []
 }
